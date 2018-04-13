@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'sgn_project.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'sgn_project.urls'
@@ -126,6 +127,14 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/account/'
+
+LOGIN_URL = '/account/login/'
+
+LOGIN_EXEMPT_URLS = (
+        'account/logout/',
+        'account/register/'
+
+)
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
