@@ -132,7 +132,8 @@ LOGIN_URL = '/account/login/'
 
 LOGIN_EXEMPT_URLS = (
         'account/logout/',
-        'account/register/'
+        'account/register/',
+        'account/reset-password/complete/'
 
 )
 
