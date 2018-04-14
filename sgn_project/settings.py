@@ -126,6 +126,9 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'sgn_project/media')
+
 LOGIN_REDIRECT_URL = '/account/'
 
 LOGIN_URL = '/account/login/'
@@ -133,11 +136,11 @@ LOGIN_URL = '/account/login/'
 LOGIN_EXEMPT_URLS = (
         'account/logout/',
         'account/register/',
-        'account/reset-password/complete/',
         'account/reset-password/',
-        'account/reset-password/done/',
-        'account/reset-password/confirm/<uidb64>/<token>/',
-        'account/reset-passwor/complite/'
+        'account/reset-password/done',
+        'account/reset-password/confirm/<uidb64>/<token>/'
+        'account/reset-password/complete/'
+
 )
 
 EMAIL_HOST = 'localhost'
