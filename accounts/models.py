@@ -3,6 +3,12 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 
 
+class UserProfileManager(models.Manager):
+    def get_queryset(self):
+        pass
+        # return super(UserProfileManager, self).get_queryset()
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
     description = models.CharField(max_length=100, default='')
