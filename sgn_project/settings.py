@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'sgn_project.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'sgn_project.urls'
@@ -105,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -118,5 +119,22 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/static/',
+]
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/account/'
+
+LOGIN_URL = '/account/login/'
+
+LOGIN_EXEMPT_URLS = (
+        'account/logout/',
+        'account/register/'
+
+)
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
