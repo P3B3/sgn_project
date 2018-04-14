@@ -140,6 +140,7 @@ LOGIN_EXEMPT_URLS = (
         'account/reset-password/done',
         'account/reset-password/confirm/<uidb64>/<token>/'
         'account/reset-password/complete/'
+
 )
 
 EMAIL_HOST = 'localhost'
