@@ -33,19 +33,19 @@
           </li>
             <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts:change_password' %}">Change Password</a>
-          </li>
-            <li class="nav-item">
-            <a class="nav-link" href="{% url 'accounts:reset_password' %}">Reset Password</a>
-          </li>
         </ul>
         <ul class="navbar-nav mr-auto">
         {% else %}
             <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
             </li>
+        </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:reset_password' %}">Reset Password</a>
+          </li>
             </ul>
         <form class="form-inline mt-2 mt-md-0">
-            <a href="/account/register" class="btn btn-outline-danger my-2 my-sm-0" role="button">Register</a>
+            <a href="{% url 'accounts:register' %}" class="btn btn-outline-danger my-2 my-sm-0" role="button">Register</a>
         </form>
           {% endif %}
       </div>
