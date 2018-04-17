@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from accounts.forms import RegistrationForm, EditProfileForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.models import User
 
 
 def register(request):
@@ -16,8 +17,12 @@ def register(request):
         return render(request, 'accounts/reg_form.html', args)
 
 
-def view_profile(request):
-    args = {'user': request.user}
+def view_profile(request, pk=None):
+    if pk:
+        user = User.objects.get(pk=pk)
+    else:
+        user = request.user
+    args = {'user': user}
     return render(request, 'accounts/profile.html', args)
 
 

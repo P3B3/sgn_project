@@ -13,7 +13,9 @@
          <p>Email: {{ user.email }}</p>
         <p>Description: {{ user.userprofile.description }}</p>
         <p>Phone: {{ user.userprofile.phone }}</p>
+         {% if user.userprofile.image %}
          <img src="{{ user.userprofile.image.url }}" width="240">
+         {% endif %}
      </div>
 
  {% endblock %}
