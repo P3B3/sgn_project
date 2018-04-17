@@ -9,3 +9,5 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
 
+class Friend(models.Model):
+    users = models.ManyToManyField(User)
