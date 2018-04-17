@@ -9,7 +9,7 @@ class HomeView(TemplateView):
 
     def get(self, request):
         form = HomeForm()
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by('-created')
 
         args = {'form': form, 'posts': posts}
         return render(request, self.template_name, args)
@@ -21,7 +21,7 @@ class HomeView(TemplateView):
             post.user = request.user
             post.save()
             text = form.cleaned_data['post']
-            redirect('home:home')
+            return redirect('home:home')
 
         args = {'form': form, 'text': text}
         return render(request, self.template_name, args)
