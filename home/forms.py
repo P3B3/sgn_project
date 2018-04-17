@@ -3,7 +3,7 @@ from home.models import Post
 
 
 class HomeForm(forms.ModelForm):
-    post = forms.CharField(required=False)
+    post = forms.CharField(widget=forms.TextInput)
 
     class Meta:
         model = Post
