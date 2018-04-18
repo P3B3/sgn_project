@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponseRedirect
 from accounts.forms import RegistrationForm, EditProfileForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
@@ -6,15 +6,19 @@ from django.contrib.auth.models import User
 
 
 def register(request):
+
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(reverse('home:home'))
+            return HttpResponseRedirect('home:home')
+        else:
+            print(form.errors)
     else:
         form = RegistrationForm()
-        args = {'form': form}
-        return render(request, 'accounts/reg_form.html', args)
+
+    args = {'form': form}
+    return render(request, 'accounts/reg_form.html', args)
 
 
 def view_profile(request, pk=None):
